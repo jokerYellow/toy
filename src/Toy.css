@@ -3,8 +3,7 @@ body{
 }
 
 p{
-    text-align: center;
-    font-size: 30px;
+    text-align: right;
     color: white;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -25,16 +24,19 @@ p{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .clock{
-    font-size: 100px;
-    margin-bottom: 0px;
+    font-size: 120px;
+    margin-bottom: 0;
     text-shadow: rgb(78, 78, 78) 1px 1px 30px;
 }
 
 .motto{
-    margin-top: 0px;
-    font-size: 60px;
+    margin-top: 0;
+    font-size: 14px;
+    max-width: 600px;
+    line-break: auto;
     text-shadow: rgb(100, 100, 100) 1px 1px 10px;
 }
