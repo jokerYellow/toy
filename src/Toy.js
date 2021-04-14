@@ -44,7 +44,7 @@ function Toy() {
     }, [motto,fontSize]);
 
     useEffect(()=>{
-        let timer = setTimeout(() => {
+        let timer = setInterval(() => {
             setDate(dateformat(new Date()));
         }, 1000);
         return  ()=>{
