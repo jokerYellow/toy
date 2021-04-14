@@ -24,13 +24,15 @@ function transFontSize(length){
     }
 }
 
+function dateformat(date) {
+    return `${trans(date.getHours())}:${trans(date.getMinutes())}`
+}
+
 function Toy() {
-    const [date, setDate] = useState(new Date())
-    const [motto, setMotto] = useState(localStorage.getItem("motto"))
-    const [fontSize, setFontSize] = useState("10px")
-    setTimeout(() => {
-        setDate(new Date());
-    }, 1000);
+    const [date, setDate] = useState(dateformat(new Date()));
+    const [motto, setMotto] = useState(localStorage.getItem("motto") ?? "");
+    const [fontSize, setFontSize] = useState(transFontSize(motto.length));
+
     useEffect(() => {
         axios.get("/motto/today").then(res => {
             if (res.status === 200) {
@@ -39,12 +41,21 @@ function Toy() {
                 setFontSize(transFontSize(res.data.length));
             }
         })
-    }, []);
+    }, [motto,fontSize]);
+
+    useEffect(()=>{
+        let timer = setTimeout(() => {
+            setDate(dateformat(new Date()));
+        }, 1000);
+        return  ()=>{
+            clearTimeout(timer);
+        }
+    },[date])
 
     return <div
         className="back center"
         style={{backgroundImage: `url(${backgroundImage1})`}}>
-        <p className="clock">{`${trans(date.getHours())}:${trans(date.getMinutes())}`}</p>
+        <p className="clock">{date}</p>
         <p className="motto" style={{fontSize:fontSize}} dangerouslySetInnerHTML={{__html: motto.replaceAll("\n", "</br>")}}/>
     </div>
 }
