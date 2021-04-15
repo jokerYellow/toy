@@ -1,6 +1,6 @@
 import './Toy.css';
 import backgroundImage1 from './wp1854626-the-witcher-3-wallpapers.jpg';
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
 
 function trans(d) {
