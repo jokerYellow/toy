@@ -36,7 +36,7 @@ function initialMotto() {
     }catch (e) {
 
     }
-    if (m.content === undefined) {
+    if (m == undefined || m.content === undefined) {
         m = {content: "", wallUrl: ""};
     }
     return m;
