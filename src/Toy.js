@@ -1,5 +1,4 @@
 import './Toy.css';
-import backgroundImage1 from './wp1854626-the-witcher-3-wallpapers.jpg';
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 
@@ -10,17 +9,17 @@ function trans(d) {
     return d;
 }
 
-function transFontSize(length){
-    if (length > 40){
-        return "14px";
-    }else if (length > 30){
-        return "17px";
-    }else if (length > 20){
-        return "19px";
-    }else if (length > 10){
+function transFontSize(length) {
+    if (length > 40) {
+        return "18px";
+    } else if (length > 30) {
+        return "20px";
+    } else if (length > 20) {
         return "22px";
-    }else {
+    } else if (length > 10) {
         return "24px";
+    } else {
+        return "25px";
     }
 }
 
@@ -28,35 +27,49 @@ function dateformat(date) {
     return `${trans(date.getHours())}:${trans(date.getMinutes())}`
 }
 
+function initialMotto() {
+    let m = localStorage.getItem("motto");
+    if (typeof m == "string"){
+        m = JSON.parse(m);
+    }
+    if (m.content === undefined) {
+        m = {content: "", wallUrl: ""};
+    }
+    return m;
+
+}
+
 function Toy() {
     const [date, setDate] = useState(dateformat(new Date()));
-    const [motto, setMotto] = useState(localStorage.getItem("motto") ?? "");
-    const [fontSize, setFontSize] = useState(transFontSize(motto.length));
+    const [motto, setMotto] = useState(initialMotto());
+    const [fontSize, setFontSize] = useState(transFontSize(motto.content.length));
 
     useEffect(() => {
-        axios.get("/motto/today").then(res => {
+        axios.get("/motto/today/v1").then(res => {
             if (res.status === 200) {
-                localStorage.setItem("motto", res.data)
-                setMotto(res.data);
-                setFontSize(transFontSize(res.data.length));
+                const motto = res.data.content;
+                localStorage.setItem("motto", JSON.stringify(motto))
+                setMotto(motto);
+                setFontSize(transFontSize(motto.content.length));
             }
         })
-    }, [motto,fontSize]);
+    }, []);
 
-    useEffect(()=>{
+    useEffect(() => {
         let timer = setInterval(() => {
             setDate(dateformat(new Date()));
         }, 1000);
-        return  ()=>{
+        return () => {
             clearTimeout(timer);
         }
-    },[date])
+    }, [date])
 
     return <div
         className="back center"
-        style={{backgroundImage: `url(${backgroundImage1})`}}>
+        style={{backgroundImage: `url(${motto.wallUrl})`}}>
         <p className="clock">{date}</p>
-        <p className="motto" style={{fontSize:fontSize}} dangerouslySetInnerHTML={{__html: motto.replaceAll("\n", "</br>")}}/>
+        <p className="motto" style={{fontSize: fontSize}}
+           dangerouslySetInnerHTML={{__html: motto.content.replaceAll("\n", "</br>")}}/>
     </div>
 }
 

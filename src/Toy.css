@@ -39,9 +39,8 @@ p{
 .motto{
     margin-top: 0;
     margin-bottom: 0;
-    font-size: 14px;
     max-width: 500px;
     line-break: auto;
     text-shadow: black 1px 1px 10px;
-    line-height: 22px;
+    /*line-height: 20px;*/
 }

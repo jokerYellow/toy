@@ -36,5 +36,6 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://motto.jollowstudio.com"
+  "proxy": "https://motto.jollowstudio.com",
+  "proxy1": "http://localhost:8082"
 }
