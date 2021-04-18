@@ -29,8 +29,12 @@ function dateformat(date) {
 
 function initialMotto() {
     let m = localStorage.getItem("motto");
-    if (typeof m == "string"){
-        m = JSON.parse(m);
+    try{
+        if (typeof m == "string"){
+            m = JSON.parse(m);
+        }
+    }catch (e) {
+
     }
     if (m.content === undefined) {
         m = {content: "", wallUrl: ""};
