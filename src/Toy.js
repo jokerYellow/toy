@@ -49,7 +49,7 @@ function Toy() {
     const [fontSize, setFontSize] = useState(transFontSize(motto.content.length));
 
     useEffect(() => {
-        axios.get("/motto/today/v1").then(res => {
+        axios.get("https://motto.jollowstudio.com/motto/today/v1").then(res => {
             if (res.status === 200) {
                 const motto = res.data.content;
                 localStorage.setItem("motto", JSON.stringify(motto))
