@@ -8,8 +8,6 @@
     "newtab": "./index.html"
   },
   "icons": {
-    "16": "logo192.png",
-    "48": "logo192.png",
     "128": "logo192.png"
   },
   "content_security_policy": "script-src 'self' 'sha256-3O7ak8jxQgc7hT2GVyDKRxi04BBLrzWPPKFQc6sUuDE='; object-src 'self'",
