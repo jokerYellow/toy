@@ -47,9 +47,9 @@ function Toy() {
     const [date, setDate] = useState(dateformat(new Date()));
     const [motto, setMotto] = useState(initialMotto());
     const [fontSize, setFontSize] = useState(transFontSize(motto.content.length));
-
+    const host = process.env.REACT_APP_MOTTO_HOST ?? "";
     useEffect(() => {
-        axios.get("https://motto.jollowstudio.com/motto/today/v1").then(res => {
+        axios.get(`${host}/motto/today/v1`).then(res => {
             if (res.status === 200) {
                 const motto = res.data.content;
                 localStorage.setItem("motto", JSON.stringify(motto))
