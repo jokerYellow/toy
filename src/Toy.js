@@ -29,11 +29,11 @@ function dateformat(date) {
 
 function initialMotto() {
     let m = localStorage.getItem("motto");
-    try{
-        if (typeof m == "string"){
+    try {
+        if (typeof m == "string") {
             m = JSON.parse(m);
         }
-    }catch (e) {
+    } catch (e) {
 
     }
     if (m == undefined || m.content === undefined) {
@@ -44,11 +44,30 @@ function initialMotto() {
 }
 
 function Toy() {
+    const urlParams = new URLSearchParams(window.location.search);
+    let initMotto = {wallUrl: null, content: null};
+    let isPreview = false;
+    if (urlParams != undefined) {
+        initMotto.wallUrl = urlParams.get('wallUrl') ?? null;
+        if (initMotto.wallUrl != null){
+            initMotto.wallUrl = decodeURI(initMotto.wallUrl);
+        }
+        initMotto.content = urlParams.get('content') ?? null;
+    }
+    if (initMotto.content == null && initMotto.wallUrl == null) {
+        initMotto = initialMotto()
+    } else {
+        isPreview = true;
+    }
     const [date, setDate] = useState(dateformat(new Date()));
-    const [motto, setMotto] = useState(initialMotto());
+    const [motto, setMotto] = useState(initMotto);
     const [fontSize, setFontSize] = useState(transFontSize(motto.content.length));
     const host = process.env.REACT_APP_MOTTO_HOST ?? "";
+
     useEffect(() => {
+        if (isPreview) {
+            return
+        }
         axios.get(`${host}/motto/today/v1`).then(res => {
             if (res.status === 200) {
                 const motto = res.data.content;
@@ -58,7 +77,6 @@ function Toy() {
             }
         })
     }, []);
-
     useEffect(() => {
         let timer = setInterval(() => {
             setDate(dateformat(new Date()));
