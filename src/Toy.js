@@ -11,15 +11,15 @@ function trans(d) {
 
 function transFontSize(length) {
     if (length > 40) {
-        return "18px";
+        return "13px";
     } else if (length > 30) {
-        return "20px";
-    } else if (length > 20) {
-        return "22px";
-    } else if (length > 10) {
         return "24px";
+    } else if (length > 20) {
+        return "26px";
+    } else if (length > 10) {
+        return "28px";
     } else {
-        return "25px";
+        return "30px";
     }
 }
 
