@@ -1,7 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import './index.css';
-// import App from './App';
 import Toy from './Toy';
 import reportWebVitals from './reportWebVitals';
 

@@ -11,15 +11,15 @@ function trans(d) {
 
 function transFontSize(length) {
     if (length > 40) {
-        return "18px";
+        return "13px";
     } else if (length > 30) {
-        return "20px";
-    } else if (length > 20) {
-        return "22px";
-    } else if (length > 10) {
         return "24px";
+    } else if (length > 20) {
+        return "26px";
+    } else if (length > 10) {
+        return "28px";
     } else {
-        return "25px";
+        return "30px";
     }
 }
 
@@ -47,9 +47,9 @@ function Toy() {
     const [date, setDate] = useState(dateformat(new Date()));
     const [motto, setMotto] = useState(initialMotto());
     const [fontSize, setFontSize] = useState(transFontSize(motto.content.length));
-
+    const host = process.env.REACT_APP_MOTTO_HOST ?? "";
     useEffect(() => {
-        axios.get("/motto/today/v1").then(res => {
+        axios.get(`${host}/motto/today/v1`).then(res => {
             if (res.status === 200) {
                 const motto = res.data.content;
                 localStorage.setItem("motto", JSON.stringify(motto))

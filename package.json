@@ -13,8 +13,9 @@
     "web-vitals": "^1.1.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "FAST_REFRESH=false react-scripts start",
     "build": "react-scripts build",
+    "build-chrome-extensions": "REACT_APP_MOTTO_HOST=https://motto.jollowstudio.com/ react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
