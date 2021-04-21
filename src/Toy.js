@@ -11,15 +11,15 @@ function trans(d) {
 
 function transFontSize(length) {
     if (length > 40) {
-        return "13px";
+        return 23;
     } else if (length > 30) {
-        return "24px";
+        return 30;
     } else if (length > 20) {
-        return "26px";
+        return 35;
     } else if (length > 10) {
-        return "28px";
+        return 38;
     } else {
-        return "30px";
+        return 40;
     }
 }
 
@@ -90,7 +90,7 @@ function Toy() {
         className="back center"
         style={{backgroundImage: `url(${motto.wallUrl})`}}>
         <p className="clock">{date}</p>
-        <p className="motto" style={{fontSize: fontSize}}
+        <p className="motto" style={{fontSize: fontSize+"px",lineHeight:(fontSize+10)+"px"}}
            dangerouslySetInnerHTML={{__html: motto.content.replaceAll("\n", "</br>")}}/>
     </div>
 }

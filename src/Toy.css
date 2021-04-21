@@ -1,3 +1,13 @@
+@font-face {
+    font-family: "MaShanZheng";
+    src: url("Ma_Shan_Zheng/MaShanZheng-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Quantico-Regular";
+    src: url("Quantico/Quantico-Regular.ttf");
+}
+
 body{
     margin: 0;
 }
@@ -27,21 +37,18 @@ p{
 }
 
 .clock{
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-    /*font-weight: lighter;*/
+    font-family: Quantico-Regular, serif;
     font-size: 120px;
     margin-bottom: 0;
     margin-top: 0;
     color: rgb(255, 255, 255);
-    text-shadow: black 0 0 20px;
+    text-shadow: black 0 0 100px;
 }
 
 .motto{
-    font-family: SimSong, serif;
-    /*margin-top: 10px;*/
+    font-family: MaShanZheng,SimSong, serif;
     margin-bottom: 0;
     max-width: 500px;
-    line-break: auto;
-    text-shadow: black 1px 1px 10px;
-    /*line-height: 20px;*/
+    font-weight: bolder;
+    text-shadow: black 0 0 50px;
 }
