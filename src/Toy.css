@@ -8,6 +8,11 @@
     src: url("Quantico/Quantico-Regular.ttf");
 }
 
+@font-face {
+    font-family: "NotoSerifSC-Light";
+    src: url("Noto_Serif_SC/NotoSerifSC-Light.otf");
+}
+
 body{
     margin: 0;
 }
@@ -46,7 +51,7 @@ p{
 }
 
 .motto{
-    font-family: MaShanZheng,SimSong, serif;
+    font-family: NotoSerifSC-Light, MaShanZheng,SimSong, serif;
     margin-bottom: 0;
     max-width: 500px;
     font-weight: bolder;
