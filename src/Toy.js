@@ -36,7 +36,7 @@ function initialMotto() {
     } catch (e) {
 
     }
-    if (m == undefined || m.content === undefined) {
+    if (m === undefined || m.content === undefined) {
         m = {content: "", wallUrl: ""};
     }
     return m;
@@ -47,7 +47,7 @@ function Toy() {
     const urlParams = new URLSearchParams(window.location.search);
     let initMotto = {wallUrl: null, content: null};
     let isPreview = false;
-    if (urlParams != undefined) {
+    if (urlParams !== undefined) {
         initMotto.wallUrl = urlParams.get('wallUrl') ?? null;
         if (initMotto.wallUrl != null){
             initMotto.wallUrl = decodeURI(initMotto.wallUrl);

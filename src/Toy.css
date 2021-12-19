@@ -1,35 +1,27 @@
-
-@font-face {
-    font-family: "Quantico-Regular";
-    src: url("Quantico/Quantico-Regular.ttf");
-}
-
-p{
+p {
     color: white;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: Geneva, Verdana, sans-serif;
 }
 
-.back{
+div {
     position: absolute;
-    top:0;
-    bottom:0;
-    left:0;
-    right:0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-}
 
-.center{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.clock{
-    font-family: Quantico-Regular, serif;
+.clock {
+    font-family: "Andale Mono", 'monospace', serif;
     font-size: 130px;
     margin-bottom: 0;
     margin-top: 0;
@@ -37,8 +29,8 @@ p{
     text-shadow: black 0 0 100px;
 }
 
-.motto{
-    margin-bottom: 0;
+.motto {
+    margin: 0;
     max-width: 500px;
     text-shadow: black 0 0 50px;
 }
