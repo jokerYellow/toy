@@ -1,20 +1,7 @@
-@font-face {
-    font-family: "MaShanZheng";
-    src: url("Ma_Shan_Zheng/MaShanZheng-Regular.ttf");
-}
 
 @font-face {
     font-family: "Quantico-Regular";
     src: url("Quantico/Quantico-Regular.ttf");
-}
-
-@font-face {
-    font-family: "NotoSerifSC-Light";
-    src: url("Noto_Serif_SC/NotoSerifSC-Light.otf");
-}
-
-body{
-    margin: 0;
 }
 
 p{
@@ -43,7 +30,7 @@ p{
 
 .clock{
     font-family: Quantico-Regular, serif;
-    font-size: 120px;
+    font-size: 130px;
     margin-bottom: 0;
     margin-top: 0;
     color: rgb(255, 255, 255);
@@ -51,9 +38,7 @@ p{
 }
 
 .motto{
-    font-family: NotoSerifSC-Light, MaShanZheng,SimSong, serif;
     margin-bottom: 0;
     max-width: 500px;
-    font-weight: bolder;
     text-shadow: black 0 0 50px;
 }
