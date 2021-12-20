@@ -1,8 +1,3 @@
-p {
-    color: white;
-    font-family: Geneva, Verdana, sans-serif;
-}
-
 div {
     position: absolute;
     top: 0;
@@ -18,19 +13,35 @@ div {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+}
+
+:root {
+    font-size: 1em;
+    color: white;
+    font-family: Geneva, Verdana, sans-serif;
 }
 
 .clock {
-    font-family: "Andale Mono", 'monospace', serif;
-    font-size: 130px;
-    margin-bottom: 0;
-    margin-top: 0;
-    color: rgb(255, 255, 255);
-    text-shadow: black 0 0 100px;
+    font-family: 'monospace', "Andale Mono", serif;
+    font-size: 7rem;
+    margin: 0;
+    text-shadow: black 0 0 0.5em;
 }
 
 .motto {
-    margin: 0;
-    max-width: 500px;
-    text-shadow: black 0 0 50px;
+    font-family: "Songti SC", "Heiti SC", serif;
+    margin-top: 1em;
+    font-size: 1rem;
+    text-shadow: black 0 0 0.5em;
+}
+
+@media (min-width: 600px) {
+    :root {
+        font-size: 2em;
+    }
+
+    .clock {
+        font-size: 4rem;
+    }
 }

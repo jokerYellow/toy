@@ -9,20 +9,6 @@ function trans(d) {
     return d;
 }
 
-function transFontSize(length) {
-    if (length > 40) {
-        return 23;
-    } else if (length > 30) {
-        return 30;
-    } else if (length > 20) {
-        return 35;
-    } else if (length > 10) {
-        return 38;
-    } else {
-        return 40;
-    }
-}
-
 function dateformat(date) {
     return `${trans(date.getHours())}:${trans(date.getMinutes())}`
 }
@@ -36,7 +22,7 @@ function initialMotto() {
     } catch (e) {
 
     }
-    if (m === undefined || m.content === undefined) {
+    if (m == undefined || m.content == undefined) {
         m = {content: "", wallUrl: ""};
     }
     return m;
@@ -61,7 +47,6 @@ function Toy() {
     }
     const [date, setDate] = useState(dateformat(new Date()));
     const [motto, setMotto] = useState(initMotto);
-    const [fontSize, setFontSize] = useState(transFontSize(motto.content.length));
     const host = process.env.REACT_APP_MOTTO_HOST ?? "";
 
     useEffect(() => {
@@ -73,7 +58,6 @@ function Toy() {
                 const motto = res.data.content;
                 localStorage.setItem("motto", JSON.stringify(motto))
                 setMotto(motto);
-                setFontSize(transFontSize(motto.content.length));
             }
         })
     }, []);
@@ -90,7 +74,7 @@ function Toy() {
         className="back center"
         style={{backgroundImage: `url(${motto.wallUrl})`}}>
         <p className="clock">{date}</p>
-        <p className="motto" style={{fontSize: fontSize+"px",lineHeight:(fontSize+10)+"px"}}
+        <p className="motto"
            dangerouslySetInnerHTML={{__html: motto.content.replaceAll("\n", "</br>")}}/>
     </div>
 }
