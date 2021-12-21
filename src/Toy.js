@@ -70,9 +70,11 @@ function Toy() {
         }
     }, [date])
 
+    const d = new Date()
+
     return <div
-        className="back center"
         style={{backgroundImage: `url(${motto.wallUrl})`}}>
+        <p className="date">{d.toLocaleDateString()}</p>
         <p className="clock">{date}</p>
         <p className="motto"
            dangerouslySetInnerHTML={{__html: motto.content.replaceAll("\n", "</br>")}}/>

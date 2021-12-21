@@ -16,32 +16,36 @@ div {
 
 }
 
+p{
+    font-family: "Songti SC", "Heiti SC", serif;
+    text-shadow: black 0 0 0.5em;
+}
+
 :root {
     font-size: 1em;
     color: white;
     font-family: Geneva, Verdana, sans-serif;
 }
 
+.date{
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-left: 1em;
+    font-size: 1rem;
+}
+
 .clock {
     font-family: 'monospace', "Andale Mono", serif;
-    font-size: 7rem;
+    font-size: calc(3rem + 3vw);
     margin: 0;
-    text-shadow: black 0 0 0.5em;
 }
 
 .motto {
-    font-family: "Songti SC", "Heiti SC", serif;
     margin-top: 1em;
-    font-size: 1rem;
-    text-shadow: black 0 0 0.5em;
+    font-size: calc(0.6rem + 1vw);
 }
 
-@media (min-width: 600px) {
-    :root {
-        font-size: 2em;
-    }
-
-    .clock {
-        font-size: 4rem;
-    }
+body{
+    line-height: 1.5;
 }
