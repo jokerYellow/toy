@@ -17,7 +17,7 @@ div {
 }
 
 p{
-    font-family: "Songti SC", "Heiti SC", serif;
+    font-family: 'monospace', "Andale Mono", serif;
     text-shadow: black 0 0 0.5em;
 }
 
@@ -36,7 +36,6 @@ p{
 }
 
 .clock {
-    font-family: 'monospace', "Andale Mono", serif;
     font-size: calc(3rem + 3vw);
     margin: 0;
 }

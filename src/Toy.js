@@ -1,6 +1,7 @@
 import './Toy.css';
 import React, {useEffect, useState} from "react";
 import axios from "axios";
+import {CurrentDate} from "./DateUtil";
 
 function trans(d) {
     if (d < 10) {
@@ -35,7 +36,7 @@ function Toy() {
     let isPreview = false;
     if (urlParams !== undefined) {
         initMotto.wallUrl = urlParams.get('wallUrl') ?? null;
-        if (initMotto.wallUrl != null){
+        if (initMotto.wallUrl != null) {
             initMotto.wallUrl = decodeURI(initMotto.wallUrl);
         }
         initMotto.content = urlParams.get('content') ?? null;
@@ -45,7 +46,8 @@ function Toy() {
     } else {
         isPreview = true;
     }
-    const [date, setDate] = useState(dateformat(new Date()));
+    const [time,setTime] = useState(dateformat(new Date()));
+    const [date, setDate] = useState(CurrentDate());
     const [motto, setMotto] = useState(initMotto);
     const host = process.env.REACT_APP_MOTTO_HOST ?? "";
 
@@ -63,19 +65,18 @@ function Toy() {
     }, []);
     useEffect(() => {
         let timer = setInterval(() => {
-            setDate(dateformat(new Date()));
+            setDate(CurrentDate());
+            setTime(dateformat(new Date()));
         }, 1000);
         return () => {
             clearTimeout(timer);
         }
     }, [date])
 
-    const d = new Date()
-
     return <div
         style={{backgroundImage: `url(${motto.wallUrl})`}}>
-        <p className="date">{d.toLocaleDateString()}</p>
-        <p className="clock">{date}</p>
+        <p className="date">{date}</p>
+        <p className="clock">{time}</p>
         <p className="motto"
            dangerouslySetInnerHTML={{__html: motto.content.replaceAll("\n", "</br>")}}/>
     </div>
