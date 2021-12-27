@@ -28,7 +28,7 @@ function initialMotto() {
     if (info === undefined || m.content === undefined) {
         m = {content: "", wallUrl: ""};
     }
-    return m;
+    return info;
 
 }
 
