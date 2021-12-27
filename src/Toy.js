@@ -16,40 +16,47 @@ function dateformat(date) {
 
 function initialMotto() {
     let m = localStorage.getItem("motto");
-    try {
-        if (typeof m == "string") {
-            m = JSON.parse(m);
-        }
-    } catch (e) {
-
+    if (m == null) {
+        return {content: "", wallUrl: ""};
     }
-    if (m == undefined || m.content == undefined) {
+    let info;
+    try {
+        info = JSON.parse(m);
+    } catch (e) {
+        return {content: "", wallUrl: ""};
+    }
+    if (info === undefined || m.content === undefined) {
         m = {content: "", wallUrl: ""};
     }
     return m;
 
 }
 
-function Toy() {
+function getMottoFromParams(){
     const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('wallUrl') != null) {
+        let motto = {wallUrl: null, content: null};
+        motto.wallUrl = urlParams.get('wallUrl') ?? null;
+        motto.content = urlParams.get('content') ?? null;
+        return motto;
+    }
+    return null;
+}
+
+function Toy() {
     let initMotto = {wallUrl: null, content: null};
     let isPreview = false;
-    if (urlParams !== undefined) {
-        initMotto.wallUrl = urlParams.get('wallUrl') ?? null;
-        if (initMotto.wallUrl != null) {
-            initMotto.wallUrl = decodeURI(initMotto.wallUrl);
-        }
-        initMotto.content = urlParams.get('content') ?? null;
-    }
-    if (initMotto.content == null && initMotto.wallUrl == null) {
-        initMotto = initialMotto()
-    } else {
+    let preMotto = getMottoFromParams();
+    if (preMotto !== null) {
+        initMotto = preMotto;
         isPreview = true;
+    }else{
+        initMotto = initialMotto();
     }
-    const [time,setTime] = useState(dateformat(new Date()));
+    const [time, setTime] = useState(dateformat(new Date()));
     const [date, setDate] = useState(CurrentDate());
     const [motto, setMotto] = useState(initMotto);
-    const host = process.env.REACT_APP_MOTTO_HOST ?? "";
+    const host = process.env['REACT_APP_MOTTO_HOST'] ?? "";
 
     useEffect(() => {
         if (isPreview) {

@@ -10,7 +10,7 @@
   "icons": {
     "128": "logo192.png"
   },
-  "content_security_policy": "script-src 'self' 'sha256-3O7ak8jxQgc7hT2GVyDKRxi04BBLrzWPPKFQc6sUuDE='; object-src 'self'",
+  "content_security_policy": "script-src 'self' 'sha256-+BrJq3dnh7glXZw0R7oEiOgsz4rHbq3mIJlSBZDnXtw=' ; object-src 'self'",
   "permissions": [
     "activeTab",
     "https://motto.jollowstudio.com/*"
