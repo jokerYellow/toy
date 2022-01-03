@@ -1,0 +1,55 @@
+
+.input{
+    background-color: transparent;
+    border-color: transparent;
+    border-width: 0;
+    border-image-width: 0;
+    color: white;
+    font-size: calc(0.6rem + 1vw);
+    font-weight: bolder;
+    text-align: center;
+    width: 100%;
+    font-family: 'monospace', "Andale Mono", serif;
+}
+
+input:focus{
+    outline-style: none;
+    cursor: pointer;
+}
+
+input::placeholder{
+    color: white;
+    opacity: 0.3;
+}
+
+.line{
+    height: 2px;
+    width: calc(100% );
+    background-color: white;
+    margin-top: 0.1em;
+}
+
+.todo{
+    min-width: calc((0.6rem + 1vw) * 16);
+}
+
+.todoShow{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    justify-items: center;
+    align-items: center;
+}
+
+.todoContent{
+    font-size: calc(0.6rem + 1vw);
+    margin: 0;
+}
+
+.checkbox{
+    margin: 0;
+}
+
+.done{
+    /*margin:0.1em;*/
+}

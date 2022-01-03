@@ -2,6 +2,7 @@ import './Toy.css';
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {CurrentDate} from "./DateUtil";
+import Todo from './todo';
 
 function trans(d) {
     if (d < 10) {
@@ -69,7 +70,7 @@ function Toy() {
                 setMotto(motto);
             }
         })
-    }, []);
+    }, [host, isPreview]);
     useEffect(() => {
         let timer = setInterval(() => {
             setDate(CurrentDate());
@@ -80,12 +81,13 @@ function Toy() {
         }
     }, [date])
 
-    return <div
+    return <div className='container'
         style={{backgroundImage: `url(${motto.wallUrl})`}}>
         <p className="date">{date}</p>
         <p className="clock">{time}</p>
         <p className="motto"
            dangerouslySetInnerHTML={{__html: motto.content.replaceAll("\n", "</br>")}}/>
+        <Todo className='todo'></Todo>
     </div>
 }
 
