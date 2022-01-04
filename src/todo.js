@@ -1,10 +1,15 @@
 import React, {useEffect, useState} from "react";
 import './todo.css'
 
+const key = {
+    focus:"com.pipasese.focus",
+    items:"com.pipasese.focus.items"
+}
+
 export default function Todo() {
     const input = React.createRef();
-    const [focus, setFocus] = useState("");
-    const [items, setitems] = useState([]);
+    const [focus, setFocus] = useState(localStorage.getItem(key.focus) ?? "");
+    const [items, setitems] = useState(JSON.parse(localStorage.getItem(key.items)) ?? []);
     const [value, setValue] = useState("");
     useEffect(() => {
         if (input.current != null) {
@@ -19,6 +24,7 @@ export default function Todo() {
         if (value.length === 0) {
             return
         }
+        localStorage.setItem(key.focus,value)
         setFocus(value)
         setValue("")
     }
@@ -29,14 +35,17 @@ export default function Todo() {
 
     const check = (v)=>{
         console.log("hello")
-        setitems([...items,focus])
+        const done = [focus,...items]
+        setitems(done)
         setFocus("")
+        localStorage.setItem(key.focus,"")
+        localStorage.setItem(key.items,JSON.stringify(done))
     }
 
     const showInput = focus.length === 0
 
-    const listItems = items.map((x)=>{
-        return <li className={'done'} key={x}>{x}</li>
+    const listItems = items.slice(0,3).map((value,index)=>{
+        return <li className={'done'} key={index}>{value}</li>
     })
 
     return (

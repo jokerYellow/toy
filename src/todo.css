@@ -51,5 +51,8 @@ input::placeholder{
 }
 
 .done{
-    /*margin:0.1em;*/
+    font-size: calc(0.6rem + 1vw);
+    list-style: none;
+    color: #ffffff88;
+    text-decoration: line-through;
 }
