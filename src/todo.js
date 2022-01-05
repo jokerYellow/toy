@@ -27,6 +27,7 @@ export default function Todo() {
         localStorage.setItem(key.focus,value)
         setFocus(value)
         setValue("")
+        document.activeElement.blur()
     }
 
     const change = (v) => {
@@ -50,16 +51,22 @@ export default function Todo() {
 
     return (
         <div className='todo'>
-            {showInput &&
-            <input className={'input'} type={"text"} value={value} placeholder='what do you want to do?' ref={input}
+            <div className={'todoShow'}>
+            <input className={`input ${showInput ? '':'lefttext' }`} 
+                   type={"text"} 
+                   value={showInput ? value : focus} 
+                   placeholder='what do you want to do?' 
+                   ref={input}
                    onKeyPress={save}
-                   onChange={change}/>}
-            {!showInput && <div className={'todoShow'}>
-                <p className='todoContent'>{focus}</p>
-                <input className={'checkbox'} type={"checkbox"} onChange={check}/>
-            </div>}
+                   onChange={change}
+                   disabled={showInput ? "":"disabled"}
+                   />
+            {!showInput && <input className={'checkbox'} type={"checkbox"} onChange={check}/>}
+            </div>
             <div className='line'/>
-            {listItems}
+            <div className="doneList">
+                {listItems}
+            </div>
         </div>
     )
 }

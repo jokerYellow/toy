@@ -10,6 +10,11 @@
     text-align: center;
     width: 100%;
     font-family: 'monospace', "Andale Mono", serif;
+    text-shadow: black 0 0 0.5em;
+}
+
+.lefttext{
+    text-align: left;
 }
 
 input:focus{
@@ -51,8 +56,13 @@ input::placeholder{
 }
 
 .done{
-    font-size: calc(0.6rem + 1vw);
-    list-style: none;
+    font-size: calc(0.3rem + 1vw);
     color: #ffffff88;
     text-decoration: line-through;
+}
+
+.doneList{
+    list-style: none;
+    position: relative;
+    top: 10em;
 }
