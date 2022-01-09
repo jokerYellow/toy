@@ -47,6 +47,7 @@ p{
 .clock {
     font-size: calc(3rem + 3vw);
     margin: 0;
+    line-height: 1em;
 }
 
 .motto {

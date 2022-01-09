@@ -43,13 +43,13 @@ export default function Todo() {
         localStorage.setItem(key.items, JSON.stringify(done))
     }
 
-    const showInput = focus.length === 0
+    let showInput = focus.length === 0
 
     const listItems = items.slice(0, 3).map((value, index) => {
         return <li className={'done'} key={index}>{value}</li>
     })
 
-    const inputElement = <div className={"fixedHeight"}>
+    const inputElement = <div className={"fixedHeight centerElement"}>
         <input className={"input"}
                type={"text"}
                value={value}
@@ -65,8 +65,7 @@ export default function Todo() {
         <p>{focus}</p>
         <input className={'checkbox'} type={"checkbox"} onChange={check}/>
     </div>
-
-    return <div className={"todo"}>
+    return <div className={"todo centerElement"}>
         {showInput ? inputElement : todo}
         {listItems}
     </div>
