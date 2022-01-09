@@ -26,9 +26,6 @@ function initialMotto() {
     } catch (e) {
         return {content: "", wallUrl: ""};
     }
-    if (info === undefined || m.content === undefined) {
-        m = {content: "", wallUrl: ""};
-    }
     return info;
 
 }
@@ -45,7 +42,7 @@ function getMottoFromParams(){
 }
 
 function Toy() {
-    let initMotto = {wallUrl: null, content: null};
+    let initMotto;
     let isPreview = false;
     let preMotto = getMottoFromParams();
     if (preMotto !== null) {
@@ -87,7 +84,7 @@ function Toy() {
         <p className="clock">{time}</p>
         <p className="motto"
            dangerouslySetInnerHTML={{__html: motto.content.replaceAll("\n", "</br>")}}/>
-        <Todo className='todo'></Todo>
+        <Todo/>
     </div>
 }
 
