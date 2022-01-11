@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Toy from './Toy';
 import reportWebVitals from './reportWebVitals';
+import App from "./app";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Toy />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

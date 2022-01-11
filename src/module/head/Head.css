@@ -1,0 +1,37 @@
+header{
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-left: 1em;
+    margin-top: 0.5em;
+    font-size: 1rem;
+}
+
+header > li{
+    display: inline;
+    margin-right: 3em;
+}
+
+.show{
+    display: block;
+    background-color: rgba(164, 125, 108, 0.46);
+    padding: 10px;
+    transition-property: all;
+    transition-duration: 0.5s;
+}
+
+.show > li{
+    list-style-position: inside;
+    list-style-type: decimal;
+    transition-property: all;
+    transition-duration: 0.25s;
+}
+
+.show > li:hover{
+    color: aquamarine;
+    background-color: black;
+}
+
+.notShow{
+    display: none;
+}

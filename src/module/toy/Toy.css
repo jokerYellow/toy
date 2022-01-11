@@ -1,0 +1,56 @@
+body{
+    line-height: 1.5;
+    font-family: 'monospace', "Andale Mono", serif;
+}
+
+*,
+*::before,
+*::after{
+    box-sizing: inherit;
+}
+
+.container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+p{
+    text-shadow: black 0 0 0.5em;
+}
+
+:root {
+    box-sizing: border-box;
+    font-size: 1em;
+    color: white;
+}
+
+.date{
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-left: 1em;
+    font-size: 1rem;
+}
+
+.clock {
+    font-size: calc(3rem + 3vw);
+    margin: 0;
+    line-height: 1em;
+}
+
+.motto {
+    margin-top: 1em;
+    font-size: calc(0.6rem + 1vw);
+}
