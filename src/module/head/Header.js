@@ -31,12 +31,11 @@ export default function Header() {
 
     return (
         <header>
-            <li>{date}</li>
-            <li><a onClick={showClick}>what I've done?</a></li>
-            <ul className={`${show ? 'show' : 'notShow'}`}>
+            <li className="headFont">{date}</li>
+            <button className="headFont" onClick={showClick}>what I've done?</button>
+            <ul className={`${show ? 'show' : 'show inshow'}`}>
                 {list}
             </ul>
-
         </header>
     )
 }

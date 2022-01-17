@@ -1,3 +1,7 @@
+.headFont{
+    color: #558384;
+}
+
 header{
     position: absolute;
     left: 0;
@@ -12,12 +16,34 @@ header > li{
     margin-right: 3em;
 }
 
+button{
+    background-color: transparent;
+    font-size: 1.1rem;
+    font-family: 'monospace', "Andale Mono", serif;
+    border: none;
+    transition: color 0.25s;
+    padding:0;
+    margin: 0;
+}
+
+button:hover{
+    color: white;
+    transition: color 1s;
+}
+
 .show{
     display: block;
-    background-color: rgba(164, 125, 108, 0.46);
+    background-color: #55838444;
     padding: 10px;
     transition-property: all;
-    transition-duration: 0.5s;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-out;
+    border-radius: 1rem;
+}
+
+.inshow{
+    opacity: 0;
+    transform: translateY(-1em);
 }
 
 .show > li{
@@ -25,13 +51,11 @@ header > li{
     list-style-type: decimal;
     transition-property: all;
     transition-duration: 0.25s;
+    margin-left: 0.2em;
+    margin-right: 0.2em;
+    padding: 0.1em;
 }
 
 .show > li:hover{
-    color: aquamarine;
-    background-color: black;
-}
-
-.notShow{
-    display: none;
+    background-color: #55838422;
 }
