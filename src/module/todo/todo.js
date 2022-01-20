@@ -53,7 +53,6 @@ export default function Todo() {
                onChange={change}
                disabled={showInput ? "" : "disabled"}
         />
-        <div className='line'/>
     </div>
     const todo = <div className={"focus fixedHeight"}>
         <p>{focus}</p>

@@ -1,61 +1,63 @@
-.headFont{
-    color: #558384;
+.headFont {
+  color: #ffffff99;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  letter-spacing: 0.01em;
 }
 
-header{
-    position: absolute;
-    left: 0;
-    top: 0;
-    margin-left: 1em;
-    margin-top: 0.5em;
-    font-size: 1rem;
+header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin-left: 1em;
+  margin-top: 0.5em;
+  font-size: 1rem;
 }
 
-header > li{
-    display: inline;
-    margin-right: 3em;
+header > div {
+  display: inline;
+  margin-right: 1em;
+  padding: 0.4em;
 }
 
-button{
-    background-color: transparent;
-    font-size: 1.1rem;
-    font-family: 'monospace', "Andale Mono", serif;
-    border: none;
-    transition: color 0.25s;
-    padding:0;
-    margin: 0;
+header > div > button {
+  background-color: #00000088;
+  height: 2em;
+  font-size: 1.1rem;
+  border: none;
+  transition: color 0.25s;
+  border-radius: 0.4em;
 }
 
-button:hover{
-    color: white;
-    transition: color 1s;
+header button:hover {
+  color: white;
+  transition: color 1s;
 }
 
-.show{
-    display: block;
-    background-color: #55838444;
-    padding: 10px;
-    transition-property: all;
-    transition-duration: 0.25s;
-    transition-timing-function: ease-out;
-    border-radius: 1rem;
+.show {
+  display: block;
+  background-color: #00000033;
+  padding: 10px;
+  transition-property: all;
+  transition-duration: 0.25s;
+  transition-timing-function: ease-out;
+  border-radius: 1rem;
 }
 
-.inshow{
-    opacity: 0;
-    transform: translateY(-1em);
+.inshow {
+  opacity: 0;
+  transform: translateX(-1em);
 }
 
-.show > li{
-    list-style-position: inside;
-    list-style-type: decimal;
-    transition-property: all;
-    transition-duration: 0.25s;
-    margin-left: 0.2em;
-    margin-right: 0.2em;
-    padding: 0.1em;
+.show > li {
+  list-style-position: inside;
+  list-style-type: decimal;
+  transition-property: all;
+  transition-duration: 0.25s;
+  margin-left: 0.3em;
+  margin-right: 0.3em;
+  padding: 0.2em;
 }
 
-.show > li:hover{
-    background-color: #55838422;
+.show > li:hover {
+  background-color: #00000066;
 }
